@@ -4,6 +4,7 @@
     'config:best-practices',
   ],
   rebaseWhen: 'never',
+  "ignoreTests": true,
   customManagers: [
     {
       customType: 'regex',

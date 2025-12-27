@@ -33,7 +33,7 @@ C %t/docker-host - - - - /usr/bin/docker-host
 C %t/podman-host - - - - /usr/bin/podman-host
 EOF
 
-tee /usr/lib/systemd/system/m2os-flatpak-overrides.service <<EOF
+tee /usr/lib/systemd/system/atomic-flatpak-overrides.service <<EOF
 [Unit]
 Description=Set Overrides for Flatpaks
 ConditionPathExists=!/etc/.%N.stamp
@@ -41,14 +41,14 @@ After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/libexec/m2os-flatpak-overrides.sh
+ExecStart=/usr/libexec/atomic-flatpak-overrides.sh
 ExecStop=/usr/bin/touch /etc/.%N.stamp
 
 [Install]
 WantedBy=default.target multi-user.target
 EOF
 
-tee /usr/libexec/m2os-flatpak-overrides.sh <<'EOF'
+tee /usr/libexec/atomic-flatpak-overrides.sh <<'EOF'
 #!/usr/bin/bash
 
 # Themeing Support
@@ -166,8 +166,8 @@ flatpak override \
     --env=WEBKIT_DISABLE_COMPOSITING_MODE=1 \
     sh.loft.devpod
 EOF
-chmod +x /usr/libexec/m2os-flatpak-overrides.sh
-systemctl enable m2os-flatpak-overrides.service
+chmod +x /usr/libexec/atomic-flatpak-overrides.sh
+systemctl enable atomic-flatpak-overrides.service
 
 mkdir /usr/libexec/keepassxc-integration
 tee /usr/libexec/keepassxc-integration/keepassxc-proxy-wrapper <<'EOF'

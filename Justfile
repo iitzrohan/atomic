@@ -4,8 +4,8 @@ mod? titanoboa
 
 # Constants
 
-repo_image_name := lowercase("m2os")
-repo_name := lowercase("m2Giles")
+repo_image_name := lowercase("atomic")
+repo_name := lowercase("iitzrohan")
 IMAGE_REGISTRY := "ghcr.io" / repo_name
 FQ_IMAGE_NAME := IMAGE_REGISTRY / repo_image_name
 
@@ -171,16 +171,17 @@ build-image image="bluefin":
     # Get The Version
     fedora_version="$(jq -r '.Labels["ostree.linux"]' < "$BUILDTMP/inspect-{{ image }}.json" | grep -oP 'fc\K[0-9]+')"
     VERSION="{{ image }}-${fedora_version}.$(date +%Y%m%d)"
-    skopeo list-tags docker://{{ FQ_IMAGE_NAME }} > "$BUILDTMP"/repotags.json
-    if [[ $(jq "any(.Tags[]; contains(\"$VERSION\"))" < "$BUILDTMP"/repotags.json) == "true" ]]; then
+    if skopeo list-tags docker://{{ FQ_IMAGE_NAME }} > "$BUILDTMP"/repotags.json 2>/dev/null; then
+      if [[ $(jq "any(.Tags[]; contains(\"$VERSION\"))" < "$BUILDTMP"/repotags.json) == "true" ]]; then
         POINT="1"
         while jq -e "any(.Tags[]; contains(\"$VERSION.$POINT\"))" >/dev/null < "$BUILDTMP"/repotags.json
         do
             (( POINT++ ))
         done
-    fi
-    if [[ -n "${POINT:-}" ]]; then
-        VERSION="${VERSION}.$POINT"
+      fi
+      if [[ -n "${POINT:-}" ]]; then
+          VERSION="${VERSION}.$POINT"
+      fi
     fi
 
     # Pull the images
