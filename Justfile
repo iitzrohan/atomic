@@ -4,8 +4,8 @@ mod? titanoboa
 
 # Constants
 
-repo_image_name := lowercase("m2os")
-repo_name := lowercase("m2Giles")
+repo_image_name := lowercase("atomic")
+repo_name := lowercase("iitzrohan")
 IMAGE_REGISTRY := "ghcr.io" / repo_name
 FQ_IMAGE_NAME := IMAGE_REGISTRY / repo_image_name
 

@@ -1,8 +1,8 @@
-# m2Giles' OS
+# Atomic' OS
 
-[![Build m2os](https://github.com/m2Giles/m2os/actions/workflows/build.yml/badge.svg)](https://github.com/m2Giles/m2os/actions/workflows/build.yml)
+[![Build atomic](https://github.com/iitzrohan/atomic/actions/workflows/build.yml/badge.svg)](https://github.com/iitzrohan/atomic/actions/workflows/build.yml)
 
-These are my customized versions of universal blue images for my needs. Everything is a tag off of m2os.
+These are my customized versions of universal blue images for my needs. Everything is a tag off of atomic.
 
 Bazzite is gnome version. Bazzite Desktop version includes nvidia drivers. ISOs are built for aurora/bazzite/bluefin/cosmic and are artifacts.
 
@@ -52,7 +52,7 @@ These images are based on the `ucore:zfs` images. They mostly just add Docker fr
 ISO's for Desktop and Bazzite Images are built using an action and uploaded as an artifact. The artifacts are linked in the releases for download. They are zipped. The ISO uses the Kinoite version meaning that you will need to create a user in Anaconda. Each release has a changelog with links to the ISOs.
 
 For the Latest ISOs:
-https://github.com/m2giles/m2os/releases/latest
+https://github.com/iitzrohan/atomic/releases/latest
 
 Note artifacts are removed after 90 days though ISOs are refreshed weekly.
 
@@ -62,11 +62,11 @@ Use the coreos installer and in the ignition file switch to one of these images.
 
 ### Rebasing
 
-You can rebase to an **m2os** image using the following:
+You can rebase to an **atomic** image using the following:
 
 ```console
 TAG=bluefin
-sudo bootc switch --enforce-container-sigpolicy "ghcr.io/m2giles/m2os:$TAG"
+sudo bootc switch --enforce-container-sigpolicy "ghcr.io/iitzrohan/atomic:$TAG"
 ```
 
 Replace TAG with the specified image. This is also the method for switching to Ucore.
@@ -78,7 +78,7 @@ All images in this repo are signed with sigstore's [`cosign`](https://github.com
 
 ```console
 TAG=bluefin
-cosign verify --key "https://raw.githubusercontent.com/m2Giles/m2os/refs/heads/main/cosign.pub" "ghcr.io/m2giles/m2os:$TAG"
+cosign verify --key "https://raw.githubusercontent.com/iitzrohan/atomic/refs/heads/main/cosign.pub" "ghcr.io/iitzrohan/atomic:$TAG"
 ```
 
 Again replace the TAG with the specified image
@@ -89,16 +89,16 @@ Every Release has an SBOM generated with anchore's [`syft`](https://github.com/a
 
 ```console
 TAG=bluefin
-cosign verify-blob --key "https://raw.githubusercontent.com/m2Giles/m2os/refs/heads/main/cosign.pub" --signature "$TAG.sbom.json.sig" "$TAG.sbom.json"
+cosign verify-blob --key "https://raw.githubusercontent.com/iitzrohan/atomic/refs/heads/main/cosign.pub" --signature "$TAG.sbom.json.sig" "$TAG.sbom.json"
 ```
 
 Again replace TAG with the specified image.
 
 ## DIY
 
-This repo was built on the [Universal Blue Image Template](https://github.com/ublue-os/image-template) and added to significantly.
+This repo was built on the [Universal Blue Image Template](https://github.com/ublue-os/image-template), [m2Giles Images](https://github.com/m2Giles/m2os) and added to significantly.
 
-It is possible to build all images and ISOs locally using the provided `Justfile` with [`just`](https://github.com/casey/just). For example to build `m2os:bluefin` just do:
+It is possible to build all images and ISOs locally using the provided `Justfile` with [`just`](https://github.com/casey/just). For example to build `atomic:bluefin` just do:
 
 ```console
 just build bluefin

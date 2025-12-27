@@ -1,5 +1,5 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
-	"name": "m2os-devcontainer",
-	"image": "ghcr.io/ublue-os/devcontainer:latest"
+  "name": "atomic-devcontainer",
+  "image": "ghcr.io/ublue-os/devcontainer:latest"
 }
