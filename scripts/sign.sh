@@ -9,7 +9,6 @@ dnf5 -y install sbsigntools openssl
 KERNEL="$(rpm -q kernel --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 SIGNING_KEY="/tmp/certs/signing_key.pem"
 PUBLIC_CHAIN="/tmp/certs/public_key.crt"
-PUBKEY_PATH="/tmp/certs/public_key.der"
 PRIVKEY_PATH="/tmp/certs/private_key.priv"
 
 # Verify certificates exist before proceeding
@@ -22,21 +21,21 @@ fi
 # Sign kernel
 STRIP="false"
 if [[ "${STRIP}" == "true" ]]; then
-    EXISTING_SIGNATURES="$(sbverify --list /usr/lib/modules/$KERNEL/vmlinuz | grep '^signature \([0-9]\+\)$' | sed 's/^signature \([0-9]\+\)$/\1/')" || true
+    EXISTING_SIGNATURES="$(sbverify --list /usr/lib/modules/"$KERNEL"/vmlinuz | grep '^signature \([0-9]\+\)$' | sed 's/^signature \([0-9]\+\)$/\1/')" || true
     if [[ -n $EXISTING_SIGNATURES ]]; then
         for SIGNUM in $EXISTING_SIGNATURES
         do
             echo "Found existing signature at signum $SIGNUM, removing..."
-            sbattach --remove /usr/lib/modules/$KERNEL/vmlinuz
+            sbattach --remove /usr/lib/modules/"$KERNEL"/vmlinuz
         done
     fi
 fi
 
-sbsign --cert $PUBLIC_CHAIN --key $PRIVKEY_PATH /usr/lib/modules/$KERNEL/vmlinuz --output /usr/lib/modules/$KERNEL/vmlinuz
-sbverify --list /usr/lib/modules/$KERNEL/vmlinuz
+sbsign --cert "$PUBLIC_CHAIN" --key "$PRIVKEY_PATH" /usr/lib/modules/"$KERNEL"/vmlinuz --output /usr/lib/modules/"$KERNEL"/vmlinuz
+sbverify --list /usr/lib/modules/"$KERNEL"/vmlinuz
 
 # Sign kernel modules
-for module in $(find /usr/lib/modules/"${KERNEL}"/extra/ -name "*.ko*"); do
+while IFS= read -r -d '' module; do
     module_basename=${module:0:-3}
     module_suffix=${module: -3}
     if [[ "$module_suffix" == ".xz" ]]; then
@@ -59,6 +58,6 @@ for module in $(find /usr/lib/modules/"${KERNEL}"/extra/ -name "*.ko*"); do
         /tmp/scripts/sign-check.sh "${KERNEL}" "${module}" "${PUBLIC_CHAIN}"
         rm -f "${module}.cms"
     fi
-done
+done < <(find /usr/lib/modules/"${KERNEL}"/extra/ -name "*.ko*" -print0)
 
 echo "::endgroup::"
