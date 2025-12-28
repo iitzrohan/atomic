@@ -55,19 +55,19 @@ syft-installer := "ghcr.io/anchore/syft:v1.39.0@sha256:6f13bb010923c33fb197047c8
 # Base Containers
 
 [private]
-aurora := "ghcr.io/ublue-os/aurora:stable-daily@sha256:2df1970422b7bb3461a2bc456f51aef26d29221d60358704962ff6f39ee3df11"
+aurora := "ghcr.io/ublue-os/aurora:latest@sha256:2df1970422b7bb3461a2bc456f51aef26d29221d60358704962ff6f39ee3df11"
 [private]
-aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:stable-daily@sha256:8c35569e1e86589ae25a9bc7dc195b377aa1ea9823ea830c07487e9d3e41840a"
+aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:latest@sha256:8c35569e1e86589ae25a9bc7dc195b377aa1ea9823ea830c07487e9d3e41840a"
 [private]
-bazzite := "ghcr.io/ublue-os/bazzite-gnome:stable@sha256:d7249c25b544d77ea589b0332d4dd2f91ed357ad483fdfd125a1de23b26eccff"
+bazzite := "ghcr.io/ublue-os/bazzite-gnome:latest@sha256:09813b325fc9493e75072505f31fe3b68e9f345149989cf3e47bce17de5f5f4b"
 [private]
-bazzite_nvidia := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:stable@sha256:6201854be2813bb3f2ddd32261e73a9a56816f3c87812567253764e8c4226751"
+bazzite_nvidia := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:latest@sha256:6201854be2813bb3f2ddd32261e73a9a56816f3c87812567253764e8c4226751"
 [private]
-bazzite_deck := "ghcr.io/ublue-os/bazzite-deck-gnome:stable@sha256:e3d60f329b6f12709bf22278eae441ccc0bc8aa15557bbe86d6238cad7334e2e"
+bazzite_deck := "ghcr.io/ublue-os/bazzite-deck-gnome:latest@sha256:e3d60f329b6f12709bf22278eae441ccc0bc8aa15557bbe86d6238cad7334e2e"
 [private]
-bluefin := "ghcr.io/ublue-os/bluefin:stable-daily@sha256:3c0ee88701f36370c7dd6cf70b5e44b4a047e10b645c711fc9bfa7af24915afb"
+bluefin := "ghcr.io/ublue-os/bluefin:latest@sha256:3c0ee88701f36370c7dd6cf70b5e44b4a047e10b645c711fc9bfa7af24915afb"
 [private]
-bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:stable-daily@sha256:8ac08e9a0a3f954c5abae0c1694c9da25986a2ea9fd91dc4263a2165685b9f7a"
+bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:latest@sha256:8ac08e9a0a3f954c5abae0c1694c9da25986a2ea9fd91dc4263a2165685b9f7a"
 [private]
 ucore := "ghcr.io/ublue-os/ucore:stable-zfs@sha256:ec2bfae0a8aa84add04ee802a8b116995dc8ce609b193540655203e4abcf3937"
 [private]
