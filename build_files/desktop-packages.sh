@@ -87,7 +87,7 @@ curl -Lo /tmp/zed.tar.gz https://zed.dev/api/releases/stable/latest/zed-linux-x8
 mkdir -p /usr/lib/zed.app/
 tar -xvf /tmp/zed.tar.gz -C /usr/lib/zed.app/ --strip-components=1
 chown 0:0 -R /usr/lib/zed.app
-ln -s /usr/lib/zed.app/bin/zed /usr/bin/zed
+ln -sf /usr/lib/zed.app/bin/zed /usr/bin/zed
 cp /usr/lib/zed.app/share/applications/zed.desktop /usr/share/applications/dev.zed.Zed.desktop
 mkdir -p /usr/share/icons/hicolor/1024x1024/apps
 cp {/usr/lib/zed.app,/usr}/share/icons/hicolor/512x512/apps/zed.png

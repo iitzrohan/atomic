@@ -42,7 +42,7 @@ pkg_size=0
 while IFS=$'\t' read -r digest size components; do
     [[ -z "$digest" ]] && continue
     ((pkg_layers++))
-    pkg_count=$(echo "$components" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | grep -v '^$' | wc -l)
+    pkg_count=$(echo "$components" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | grep -c -v '^$')
     ((total_packages += pkg_count))
     ((pkg_size += size))
 done <<< "$pkg_layer_data"
@@ -88,7 +88,7 @@ while IFS=$'\t' read -r digest size components; do
     short_digest="${short_digest:0:12}"
 
     # Count packages in this layer
-    pkg_count=$(echo "$components" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | grep -v '^$' | wc -l)
+    pkg_count=$(echo "$components" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | grep -c -v '^$')
 
     echo "[$short_digest] ($human) - $pkg_count package(s):"
 

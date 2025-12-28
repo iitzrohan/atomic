@@ -17,8 +17,8 @@ export KVER
 
 # Run make with the correct KERNELVERSION
 echo "Compiling and installing kernel modules..."
-make -C /tmp/LenovoLegionLinux-main/kernel_module KERNELVERSION=$KERNELVERSION KVER=$KVER
-make -C /tmp/LenovoLegionLinux-main/kernel_module install KERNELVERSION=$KERNELVERSION KVER=$KVER
+make -C /tmp/LenovoLegionLinux-main/kernel_module KERNELVERSION="$KERNELVERSION" KVER="$KVER"
+make -C /tmp/LenovoLegionLinux-main/kernel_module install KERNELVERSION="$KERNELVERSION" KVER="$KVER"
 
 KERNEL="$(rpm -q kernel --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 SIGNING_KEY="/tmp/certs/signing_key.pem"
@@ -31,12 +31,12 @@ if [ ! -f "${SIGNING_KEY}" ] || [ ! -f "${PUBLIC_CHAIN}" ]; then
     exit 1
 fi
 
-for module in $(find /lib/modules/"${KERNEL}"/kernel/drivers/platform/x86/ -name "legion-laptop.ko"); do
+while IFS= read -r -d '' module; do
     openssl cms -sign -signer "${SIGNING_KEY}" -binary -in "$module" -outform DER -out "${module}.cms" -nocerts -noattr -nosmimecap
     /usr/src/kernels/"${KERNEL}"/scripts/sign-file -s "${module}.cms" sha256 "${PUBLIC_CHAIN}" "${module}"
     /tmp/scripts/sign-check.sh "${KERNEL}" "${module}" "${PUBLIC_CHAIN}"
     xz -C crc32 -f "${module}"
     rm -f "${module}.cms"
-done
+done < <(find /lib/modules/"${KERNEL}"/kernel/drivers/platform/x86/ -name "legion-laptop.ko" -print0)
 
 echo "Process completed!"

@@ -133,6 +133,7 @@ jobs:
     with:
       type: stable
 
+# yamllint disable rule:comments-indentation
   # create-release-beta:
   #   name: Create Release (Beta)
   #   if: ${{ ! contains(github.head_ref, 'renovate') }}
@@ -142,3 +143,4 @@ jobs:
   #     contents: write
   #   with:
   #     type: beta
+# yamllint enable rule:comments-indentation
