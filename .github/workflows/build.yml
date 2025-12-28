@@ -11,6 +11,25 @@ on: # yamllint disable-line rule:truthy rule:comments
   #     - main
   merge_group:
   workflow_dispatch:
+    inputs:
+      flavor:
+        description: "Flavor"
+        required: true
+        default: "stable"
+        type: choice
+        options:
+          - stable
+          - beta
+          - both
+      build_type:
+        description: "Build Type"
+        required: true
+        default: "image"
+        type: choice
+        options:
+          - image
+          - iso
+          - both
 
 jobs:
   lint:
@@ -22,6 +41,12 @@ jobs:
   build-image:
     name: Build Images
     needs: [lint]
+    if: |
+      (github.event_name == 'schedule') ||
+      (github.event_name == 'merge_group') ||
+      (github.event_name == 'workflow_dispatch' &&
+        (inputs.flavor == 'stable' || inputs.flavor == 'both') &&
+        (inputs.build_type == 'image' || inputs.build_type == 'both'))
     uses: ./.github/workflows/build-image.yml
     permissions:
       actions: read
@@ -34,7 +59,11 @@ jobs:
 
   build-iso:
     name: Build ISOs
-    if: ${{ ! contains(github.head_ref, 'renovate') }}
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (inputs.flavor == 'stable' || inputs.flavor == 'both') &&
+      (inputs.build_type == 'iso' || inputs.build_type == 'both') &&
+      !contains(github.head_ref, 'renovate')
     uses: ./.github/workflows/build-iso.yml
     permissions:
       actions: read
@@ -46,7 +75,15 @@ jobs:
 
   gen-sbom:
     name: Generate SBOMs
-    if: ${{ ! contains(github.head_ref, 'renovate') }}
+    if: |
+      !contains(github.head_ref, 'renovate') &&
+      (
+        (github.event_name == 'schedule') ||
+        (github.event_name == 'merge_group') ||
+        (github.event_name == 'workflow_dispatch' &&
+          (inputs.flavor == 'stable' || inputs.flavor == 'both') &&
+          (inputs.build_type == 'image' || inputs.build_type == 'both'))
+      )
     needs: [build-image]
     uses: ./.github/workflows/gen-sbom.yml
     permissions:
@@ -59,49 +96,65 @@ jobs:
     with:
       image_flavor: Stable
 
-  # build-image-beta:
-  #   name: Build Images (Beta)
-  #   needs: [lint]
-  #   uses: ./.github/workflows/build-image.yml
-  #   permissions:
-  #     actions: read
-  #     contents: read
-  #     packages: write
-  #   secrets:
-  #     SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
-  #   with:
-  #     image_flavor: Beta
+  build-image-beta:
+    name: Build Images (Beta)
+    needs: [lint]
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (inputs.flavor == 'beta' || inputs.flavor == 'both') &&
+      (inputs.build_type == 'image' || inputs.build_type == 'both')
+    uses: ./.github/workflows/build-image.yml
+    permissions:
+      actions: read
+      contents: read
+      packages: write
+    secrets:
+      SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
+    with:
+      image_flavor: Beta
 
-  # build-iso-beta:
-  #   name: Build ISOs (Beta)
-  #   if: ${{ ! contains(github.head_ref, 'renovate') }}
-  #   uses: ./.github/workflows/build-iso.yml
-  #   permissions:
-  #     actions: read
-  #     contents: read
-  #     packages: read
-  #   needs: [build-image-beta]
-  #   with:
-  #     image_flavor: Beta
+  build-iso-beta:
+    name: Build ISOs (Beta)
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (inputs.flavor == 'beta' || inputs.flavor == 'both') &&
+      (inputs.build_type == 'iso' || inputs.build_type == 'both') &&
+      !contains(github.head_ref, 'renovate')
+    uses: ./.github/workflows/build-iso.yml
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+    needs: [build-image-beta]
+    with:
+      image_flavor: Beta
 
-  # gen-sbom-beta:
-  #   name: Generate SBOMs (Beta)
-  #   if: ${{ ! contains(github.head_ref, 'renovate') }}
-  #   needs: [build-image-beta]
-  #   uses: ./.github/workflows/gen-sbom.yml
-  #   permissions:
-  #     actions: read
-  #     contents: read
-  #     packages: write
-  #     security-events: write
-  #   secrets:
-  #     SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
-  #   with:
-  #     image_flavor: Beta
+  gen-sbom-beta:
+    name: Generate SBOMs (Beta)
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (inputs.flavor == 'beta' || inputs.flavor == 'both') &&
+      (inputs.build_type == 'image' || inputs.build_type == 'both') &&
+      !contains(github.head_ref, 'renovate')
+    needs: [build-image-beta]
+    uses: ./.github/workflows/gen-sbom.yml
+    permissions:
+      actions: read
+      contents: read
+      packages: write
+      security-events: write
+    secrets:
+      SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
+    with:
+      image_flavor: Beta
 
   create-release:
     name: Create Release
-    if: ${{ ! contains(github.head_ref, 'renovate') }}
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (inputs.flavor == 'stable' || inputs.flavor == 'both') &&
+      (inputs.build_type == 'iso' || inputs.build_type == 'both') &&
+      !contains(github.head_ref, 'renovate')
     needs: ["build-iso", "gen-sbom"]
     uses: ./.github/workflows/create-release.yml
     permissions:
@@ -109,14 +162,16 @@ jobs:
     with:
       type: stable
 
-# yamllint disable rule:comments-indentation
-  # create-release-beta:
-  #   name: Create Release (Beta)
-  #   if: ${{ ! contains(github.head_ref, 'renovate') }}
-  #   needs: ["build-iso-beta", "gen-sbom-beta"]
-  #   uses: ./.github/workflows/create-release.yml
-  #   permissions:
-  #     contents: write
-  #   with:
-  #     type: beta
-# yamllint enable rule:comments-indentation
+  create-release-beta:
+    name: Create Release (Beta)
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (inputs.flavor == 'beta' || inputs.flavor == 'both') &&
+      (inputs.build_type == 'iso' || inputs.build_type == 'both') &&
+      !contains(github.head_ref, 'renovate')
+    needs: ["build-iso-beta", "gen-sbom-beta"]
+    uses: ./.github/workflows/create-release.yml
+    permissions:
+      contents: write
+    with:
+      type: beta
