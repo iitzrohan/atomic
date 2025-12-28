@@ -6,17 +6,17 @@ These are my customized versions of universal blue images for my needs. Everythi
 
 Bazzite is gnome version. Bazzite Desktop version includes nvidia drivers. ISOs are built for aurora/bazzite/bluefin/cosmic and are artifacts.
 
-Note, this is also a place I use to experiment before making changes in Universal Blue.
-
 Occaisionally, I will build beta versions around Fedora Major Release time.
 
 ## Tags
 
 ### Desktop Images
 
-These images are aimed for desktop use. All of them are based on Bluefin's stable-daily.
+These images are aimed for desktop use. All of them are based on Bluefin's latest, Aurora's latest, Bazzite's latest.
 
 Aurora is built from Aurora, Bluefin from Bluefin, and Cosmic from base-main.
+
+Bazzite is based on gnome, Bazzite-nvidia is based on gnome-nvidia and Bazzite-deck is based on gnome deck image.
 
 All images have zfs support. Nvidia Images have nvidia included as well.
 
@@ -24,19 +24,13 @@ These add in the following: Docker, Incus, and Steam plus different editors. A r
 
 - aurora
 - aurora-nvidia
+- bazzite
+- bazzite-nvidia
+- bazzite-deck
 - bluefin
 - bluefin-nvidia
 - cosmic
 - cosmic-nvidia
-
-### Bazzite Images
-
-These images are based on Bazzite's Gnome images. `bazzite` is based on gnome-nvidia and `bazzite-deck` is based on gnome deck image.
-
-These include several -dx like items like multiple editors, docker, and incus.
-
-- bazzite
-- bazzite-deck
 
 ### Ucore Images
 
@@ -47,9 +41,9 @@ These images are based on the `ucore:zfs` images. They mostly just add Docker fr
 
 ## How to Install
 
-### Desktop/Bazzite Images
+### Desktop Images
 
-ISO's for Desktop and Bazzite Images are built using an action and uploaded as an artifact. The artifacts are linked in the releases for download. They are zipped. The ISO uses the Kinoite version meaning that you will need to create a user in Anaconda. Each release has a changelog with links to the ISOs.
+ISO's for Desktop and Images are built using an action and uploaded as an artifact. The artifacts are linked in the releases for download. They are zipped. The ISO uses the Kinoite version meaning that you will need to create a user in Anaconda. Each release has a changelog with links to the ISOs.
 
 For the Latest ISOs:
 https://github.com/iitzrohan/atomic/releases/latest
