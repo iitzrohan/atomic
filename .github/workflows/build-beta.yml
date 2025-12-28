@@ -1,15 +1,11 @@
 ---
-name: Build atomic
+name: Build atomic (Beta)
 on: # yamllint disable-line rule:truthy rule:comments
-  schedule:
-    # yamllint disable-line rule:comments
-    - cron: "41 6 * * 0" # 6:41 UTC Sunday
-    # yamllint disable-line rule:comments
-    - cron: "41 6 * * 1,2,3,4,5,6" # 6:41 UTC Monday-Saturday
-  # pull_request:
-  #   branches:
-  #     - main
-  merge_group:
+  # schedule:
+  #   # yamllint disable-line rule:comments
+  #   - cron: "41 6 * * 0" # 6:41 UTC Sunday
+  #   # yamllint disable-line rule:comments
+  #   - cron: "41 6 * * 1,2,3,4,5,6" # 6:41 UTC Monday-Saturday
   workflow_dispatch:
     inputs:
       build_type:
@@ -34,7 +30,6 @@ jobs:
     needs: [lint]
     if: |
       (github.event_name == 'schedule') ||
-      (github.event_name == 'merge_group') ||
       (github.event_name == 'workflow_dispatch' &&
         (inputs.build_type == 'image' || inputs.build_type == 'both'))
     uses: ./.github/workflows/build-image.yml
@@ -45,12 +40,11 @@ jobs:
     secrets:
       SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
     with:
-      image_flavor: Stable
+      image_flavor: Beta
 
   build-iso:
     name: Build ISOs
     if: |
-      github.event_name == 'workflow_dispatch' &&
       (inputs.build_type == 'iso' || inputs.build_type == 'both') &&
       !contains(github.head_ref, 'renovate')
     uses: ./.github/workflows/build-iso.yml
@@ -60,7 +54,7 @@ jobs:
       packages: read
     needs: [build-image]
     with:
-      image_flavor: Stable
+      image_flavor: Beta
 
   gen-sbom:
     name: Generate SBOMs
@@ -68,7 +62,6 @@ jobs:
       !contains(github.head_ref, 'renovate') &&
       (
         (github.event_name == 'schedule') ||
-        (github.event_name == 'merge_group') ||
         (github.event_name == 'workflow_dispatch' &&
           (inputs.build_type == 'image' || inputs.build_type == 'both'))
       )
@@ -82,12 +75,11 @@ jobs:
     secrets:
       SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
     with:
-      image_flavor: Stable
+      image_flavor: Beta
 
   create-release:
     name: Create Release
     if: |
-      github.event_name == 'workflow_dispatch' &&
       (inputs.build_type == 'iso' || inputs.build_type == 'both') &&
       !contains(github.head_ref, 'renovate')
     needs: ["build-iso", "gen-sbom"]
@@ -95,4 +87,4 @@ jobs:
     permissions:
       contents: write
     with:
-      type: stable
+      type: beta
