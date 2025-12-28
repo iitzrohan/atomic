@@ -33,7 +33,7 @@ jobs:
 
       - name: Download Artifacts
         # yamllint disable-line rule:line-length rule:comments
-        if: contains(fromJson('["Desktop", "Bazzite", "Desktop-Beta", "Bazzite-Beta"]'),
+        if: contains(fromJson('["Stable", "Beta"]'),
           inputs.target)
         # yamllint disable-line rule:line-length rule:comments
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
@@ -44,7 +44,7 @@ jobs:
       - name: Merge Artifacts into url.md
         id: merge-artifacts
         # yamllint disable-line rule:line-length rule:comments
-        if: contains(fromJson('["Desktop", "Bazzite", "Desktop-Beta", "Bazzite-Beta"]'),
+        if: contains(fromJson('["Stable", "Beta"]'),
           inputs.target)
         shell: bash
         run: |

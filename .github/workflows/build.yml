@@ -29,12 +29,8 @@ jobs:
       packages: write
     secrets:
       SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
-    strategy:
-      fail-fast: false
-      matrix:
-        image_flavor: ["Desktop", "Bazzite"]
     with:
-      image_flavor: ${{ matrix.image_flavor }}
+      image_flavor: Stable
 
   build-iso:
     name: Build ISOs
@@ -45,12 +41,8 @@ jobs:
       contents: read
       packages: read
     needs: [build-image]
-    strategy:
-      fail-fast: false
-      matrix:
-        image_flavor: ["Desktop", "Bazzite"]
     with:
-      image_flavor: ${{ matrix.image_flavor }}
+      image_flavor: Stable
 
   gen-sbom:
     name: Generate SBOMs
@@ -64,12 +56,8 @@ jobs:
       security-events: write
     secrets:
       SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
-    strategy:
-      fail-fast: false
-      matrix:
-        image_flavor: ["Desktop", "Bazzite"]
     with:
-      image_flavor: ${{ matrix.image_flavor }}
+      image_flavor: Stable
 
   # build-image-beta:
   #   name: Build Images (Beta)
@@ -81,12 +69,8 @@ jobs:
   #     packages: write
   #   secrets:
   #     SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       image_flavor: ["Beta-Bazzite", "Beta-Desktop"]
   #   with:
-  #     image_flavor: ${{ matrix.image_flavor }}
+  #     image_flavor: Beta
 
   # build-iso-beta:
   #   name: Build ISOs (Beta)
@@ -97,12 +81,8 @@ jobs:
   #     contents: read
   #     packages: read
   #   needs: [build-image-beta]
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       image_flavor: ["Beta-Bazzite", "Beta-Desktop"]
   #   with:
-  #     image_flavor: ${{ matrix.image_flavor }}
+  #     image_flavor: Beta
 
   # gen-sbom-beta:
   #   name: Generate SBOMs (Beta)
@@ -116,12 +96,8 @@ jobs:
   #     security-events: write
   #   secrets:
   #     SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       image_flavor: ["Beta-Desktop", "Beta-Bazzite"]
   #   with:
-  #     image_flavor: ${{ matrix.image_flavor }}
+  #     image_flavor: Beta
 
   create-release:
     name: Create Release

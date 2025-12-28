@@ -3,7 +3,7 @@ name: Get Images for Build
 description: Get Images for Build
 inputs:
   image_flavor:
-    description: "Types of Image to Build (Bazzite, Desktop, Server)"
+    description: "Types of Image to Build (Stable, Beta, Server, Beta-Server)"
     required: true
 outputs:
   images:
@@ -21,26 +21,22 @@ runs:
 
         # Add Images
         case "${{ inputs.image_flavor }}" in
-        "Bazzite")
-          images+=("bazzite" "bazzite-deck")
-          ;;
-        "Desktop")
-          # images+=("aurora" "aurora-nvidia")
+        "Stable")
+          # images+=("aurora-nvidia")
           images+=("aurora")
           images+=("bluefin" "bluefin-nvidia")
           images+=("cosmic" "cosmic-nvidia")
+          images+=("bazzite" "bazzite-deck")
           ;;
         "Server")
           images+=("ucore" "ucore-nvidia")
           ;;
-        "Beta-Bazzite")
-          images+=("bazzite-beta" "bazzite-deck-beta")
-          ;;
-        "Beta-Desktop")
-          # images+=("aurora-beta" "aurora-nvidia-beta")
+        "Beta")
+          # images+=("aurora-nvidia-beta")
           images+=("aurora-beta")
           images+=("bluefin-beta" "bluefin-nvidia-beta")
           images+=("cosmic-beta" "cosmic-nvidia-beta")
+          images+=("bazzite-beta" "bazzite-deck-beta")
           ;;
         "Beta-Server")
           images+=("ucore-beta" "ucore-nvidia-beta")

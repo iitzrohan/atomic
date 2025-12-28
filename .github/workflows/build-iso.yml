@@ -7,11 +7,9 @@ on: # yamllint disable-line rule:truthy rule:comments
         description: "The image flavor to build, Make sure it matches"
         type: choice
         options:
-          - "Desktop"
-          - "Bazzite"
-          - "Beta-Desktop"
-          - "Beta-Bazzite"
-        default: "Desktop"
+          - "Stable"
+          - "Beta"
+        default: "Stable"
   workflow_call:
     inputs:
       image_flavor:
