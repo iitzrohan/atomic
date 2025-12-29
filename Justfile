@@ -65,9 +65,9 @@ bazzite_nvidia := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:latest@sha256:6201
 [private]
 bazzite_deck := "ghcr.io/ublue-os/bazzite-deck-gnome:latest@sha256:e3d60f329b6f12709bf22278eae441ccc0bc8aa15557bbe86d6238cad7334e2e"
 [private]
-bluefin := "ghcr.io/ublue-os/bluefin:latest@sha256:14a811e342f7162117d6fdaf77c4764602a8b6083f3eb96e69bf4d68c1a3fee6"
+bluefin := "ghcr.io/ublue-os/bluefin:latest@sha256:49b2809864144440abaed6329b3a54bc625e4091c60ea12fa6d6b41201dd912f"
 [private]
-bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:latest@sha256:78b5d8d6d6ee57b4472e8707c1d47855fb7a9c4a40d53221589383446796b736"
+bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:latest@sha256:03511423dfd4ef354c41fcecdbfa5e027d1e1c1c1342edaeee6235678d5891d7"
 [private]
 ucore := "ghcr.io/ublue-os/ucore:stable@sha256:6433536907d90a45162aa072fba6d736a064786688a6f493b49fd45f421df034"
 [private]
@@ -77,11 +77,11 @@ aurora_beta := "ghcr.io/ublue-os/aurora:beta@sha256:1a73a0f22473897bd6f015539ffb
 [private]
 aurora_nvidia_beta := "ghcr.io/ublue-os/aurora-nvidia-open:beta@sha256:2bb503250afde79a1b728a79fb27f826c8cb5ccb00be0d187fe032c6816427ba"
 [private]
-bazzite_beta := "ghcr.io/ublue-os/bazzite-gnome:testing@sha256:09813b325fc9493e75072505f31fe3b68e9f345149989cf3e47bce17de5f5f4b"
+bazzite_beta := "ghcr.io/ublue-os/bazzite-gnome:testing@sha256:fac90c87c10c051b5e0a30d108bc783abed9c5a48f7bfc1fa1c891beed7bf920"
 [private]
-bazzite_nvidia_beta := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:testing@sha256:699cb99b305ab3d8c3f2aa9c2375d9161d0caa9e608feaa7b9b57745343785d3"
+bazzite_nvidia_beta := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:testing@sha256:2dd03425ad9d4fd26aee7235508dd3cac10006bf623c99515cb82dc5ba95ff76"
 [private]
-bazzite_deck_beta := "ghcr.io/ublue-os/bazzite-deck-gnome:testing@sha256:79ced0702abfec1f16fc0ea4fe20fd0710acc3a8a531fb7c18bbd166dcac616b"
+bazzite_deck_beta := "ghcr.io/ublue-os/bazzite-deck-gnome:testing@sha256:a4b637a75a73c80b1ccb03b7ff871ddf39b0ba86d69de5a8a56d00aab0da0ef6"
 [private]
 bluefin_beta := "ghcr.io/ublue-os/bluefin:beta@sha256:e9a85f93abae3977aebe2fdfb101c5e71bd10d1242bb68ee4c9370ff77007e98"
 [private]
