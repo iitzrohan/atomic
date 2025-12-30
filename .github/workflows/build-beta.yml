@@ -1,11 +1,13 @@
 ---
 name: Build atomic (Beta)
 on: # yamllint disable-line rule:truthy rule:comments
-  # schedule:
-  #   # yamllint disable-line rule:comments
-  #   - cron: "41 6 * * 0" # 6:41 UTC Sunday
-  #   # yamllint disable-line rule:comments
-  #   - cron: "41 6 * * 1,2,3,4,5,6" # 6:41 UTC Monday-Saturday
+  schedule:
+    # yamllint disable-line rule:comments
+    - cron: "41 6 * * 0" # 6:41 UTC Sunday
+  # pull_request:
+  #   branches:
+  #     - main
+  merge_group:
   workflow_dispatch:
     inputs:
       build_type:
