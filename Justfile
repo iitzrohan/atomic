@@ -65,9 +65,9 @@ bazzite_nvidia := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:stable-43@sha256:4
 [private]
 bazzite_deck := "ghcr.io/ublue-os/bazzite-deck-gnome:stable-43@sha256:9c3c888810250cae3938430e453dab494d16fabd3a1cfa0e4baf6bf13e7daaff"
 [private]
-bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:63fc4edbb497b72ee7b01ea2a12c455cc0ceed581ebc527149bf92ef5ff83e61"
+bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:e42baf502be4f17a7018352e3886e802f743e466762186123d4ba2b76f65d67f"
 [private]
-bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:a9c225503d27ad58089d97c3881f4d42922c013fb4e5efc9e8669f57ba218068"
+bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:6d4c10cd81b9064aa9b31bb4eb5b943e86b07b8738ce050fc7808b92ad6693ac"
 [private]
 ucore := "ghcr.io/ublue-os/ucore:stable@sha256:0361fca303bd6840ba72828134e319947bf2c0ee06c95dacd03c2015963af48e"
 [private]
