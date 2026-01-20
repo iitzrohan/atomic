@@ -19,7 +19,7 @@ images:
   - name: akmods-testing
     image: ghcr.io/ublue-os/akmods
     tag: coreos-testing-43
-    digest: sha256:f97122820f6352c7e42fa66bf439e929033a526d240ce66c03935ef60bd3a540
+    digest: sha256:d2cec42818e4dc648d34e7e540a3471e1eed4a3e413eac0a379cf1635c19e4a5
   - name: akmods-nvidia-open-testing
     image: ghcr.io/ublue-os/akmods-nvidia-open
     tag: coreos-testing-43
