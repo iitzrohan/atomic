@@ -87,9 +87,9 @@ bluefin_beta := "ghcr.io/ublue-os/bluefin:beta@sha256:e9a85f93abae3977aebe2fdfb1
 [private]
 bluefin_nvidia_beta := "ghcr.io/ublue-os/bluefin-nvidia-open:beta@sha256:33375bed50a601e5199ae48cd28cd157037afd1bbf9de96486774a6763666983"
 [private]
-ucore_beta := "ghcr.io/ublue-os/ucore:testing@sha256:a60eb8878c2096d6fe358907a26f0f2066d03e2aa63e4aad0348ee40bb08beed"
+ucore_beta := "ghcr.io/ublue-os/ucore:testing@sha256:c7325e329cab49dc00b9fcd11d419fce4f625c97a224a07f968ec605cf26f9a7"
 [private]
-ucore_nvidia_beta := "ghcr.io/ublue-os/ucore:testing-nvidia@sha256:64832f45c7cc5fb652d09afd4056ada0070955c6f0068cb7c150b90fa01e85e2"
+ucore_nvidia_beta := "ghcr.io/ublue-os/ucore:testing-nvidia@sha256:5466e8a5bbd796cab428c35764e3727766954c80d6e7934ce0286b1d26d83b1f"
 
 [private]
 default:
