@@ -13,7 +13,7 @@ images:
   - name: akmods-zfs-stable
     image: ghcr.io/ublue-os/akmods-zfs
     tag: coreos-stable-43
-    digest: sha256:5ee8c6ff70305d516f30f62cc453f2eb76d0d0a0cd99f609cc591001defa7961
+    digest: sha256:9820807a85c802cd334fff7e61e17bdbafb5593ffd4c8d08f63afcf80beebc03
 
   # Testing
   - name: akmods-testing
