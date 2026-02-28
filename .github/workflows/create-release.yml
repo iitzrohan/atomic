@@ -38,7 +38,7 @@ jobs:
 
       - name: Download Changelogs
         # yamllint disable-line rule:line-length rule:comments
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           pattern: "changelogs-*"
           run-id: ${{ inputs.run-id || github.run_id }}
@@ -47,7 +47,7 @@ jobs:
 
       - name: Download SBOMs
         # yamllint disable-line rule:line-length rule:comments
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           pattern: "*.sbom"
           run-id: ${{ inputs.run-id || github.run_id }}
