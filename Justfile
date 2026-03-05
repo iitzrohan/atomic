@@ -55,9 +55,9 @@ syft-installer := "ghcr.io/anchore/syft:v1.42.1@sha256:392b65f29a410d2c1294d347b
 # Base Containers
 
 [private]
-aurora := "ghcr.io/ublue-os/aurora:43@sha256:b797c37b7e5a9950c540f50eddad7d648d154e042a267f18bebf12c14dcc5f2a"
+aurora := "ghcr.io/ublue-os/aurora:43@sha256:d680d113871e8f2d2752b46faf808d6ab54b7989bbac4e94dd19a319025f1633"
 [private]
-aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:6b45058e61827a1ac21c5f73876a0b3d6f90f8ae794ea50dd293cefb8a5fdba8"
+aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:f164ab263c6815ad08ecf1680e1cdb6d43b5e5ce067fd88c46b53fbbde922c3b"
 [private]
 bazzite := "ghcr.io/ublue-os/bazzite-gnome:stable-43@sha256:717f463731f01c7727a94cf3f25d12227d5f3454d073f3819feb62b287fccbaf"
 [private]
@@ -69,9 +69,9 @@ bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:dbc052158ba0f46d979c91b96abd5c3c0
 [private]
 bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:f45b745ecf8b55a746324c0c9b633a8e54817a1eab1c35da70c9c7b320fb880e"
 [private]
-ucore := "ghcr.io/ublue-os/ucore:stable@sha256:5013657cdeb5a6fbe30fa35cbfcecb7caf8afa6746625a911ff7065a0446cbd7"
+ucore := "ghcr.io/ublue-os/ucore:stable@sha256:ffda52668f4e79b17ef5021d7cefecb2ba93274d238a197f89e76d5b89d901a1"
 [private]
-ucore_nvidia := "ghcr.io/ublue-os/ucore:stable-nvidia@sha256:77764bd67ba6bd8dafc4b6d7467e5c18dbe103b98159551cc4db09c193f7d859"
+ucore_nvidia := "ghcr.io/ublue-os/ucore:stable-nvidia@sha256:edb65523c474fb23b73106a17cffb678d2fbd6fdca924bcfbc87e4c4e74f3c54"
 [private]
 aurora_beta := "ghcr.io/ublue-os/aurora:beta@sha256:1c08325a416d98cd6028a204447dee593fbceca3e76935a4d3d859dd6d4b34bf"
 [private]
@@ -87,9 +87,9 @@ bluefin_beta := "ghcr.io/ublue-os/bluefin:beta@sha256:e9a85f93abae3977aebe2fdfb1
 [private]
 bluefin_nvidia_beta := "ghcr.io/ublue-os/bluefin-nvidia-open:beta@sha256:33375bed50a601e5199ae48cd28cd157037afd1bbf9de96486774a6763666983"
 [private]
-ucore_beta := "ghcr.io/ublue-os/ucore:testing@sha256:758b2b17759c11f2b8803f4bc7d814e3eda3e34b56e54b1faed0b6bd40b69fa2"
+ucore_beta := "ghcr.io/ublue-os/ucore:testing@sha256:686ad6acf40d7ddd0355ceedc5d205baa5d24e184264c8219b9bbf21de5fb98e"
 [private]
-ucore_nvidia_beta := "ghcr.io/ublue-os/ucore:testing-nvidia@sha256:ff23ab8c3b37a821bbce84582eafe44bf238f57c0a9f5ff44139e04b0a857d0c"
+ucore_nvidia_beta := "ghcr.io/ublue-os/ucore:testing-nvidia@sha256:57458f432947a426d08a6ccb594f2d3c4f276449ab5d311f7819dda5e141be70"
 
 [private]
 default:
