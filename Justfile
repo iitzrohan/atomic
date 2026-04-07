@@ -55,9 +55,9 @@ syft-installer := "ghcr.io/anchore/syft:v1.42.3@sha256:5999d209a342e55e9edf70bf8
 # Base Containers
 
 [private]
-aurora := "ghcr.io/ublue-os/aurora:43@sha256:a31c42210f336dfb765e30bb76e715c7516f1d7e4c004a31c1aa857f01f2c9b8"
+aurora := "ghcr.io/ublue-os/aurora:43@sha256:f214fc5264fe130f5a90bfb902ff1f05347b79a90d8bdfd200cc50d0b26a43fe"
 [private]
-aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:cb000f6817f3ea1913b40b706cd3c692b17f458fbeb559e3d2fc1805e2174249"
+aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:1a84cfc8a7583d63d98cd452c5719fc7e09ccbd1a01c9c389d418558cfd85ea1"
 [private]
 bazzite := "ghcr.io/ublue-os/bazzite-gnome:stable-43@sha256:8b8958c1f0854c000b162c7a7aac9b1fddc11c5a030565620218a5fd8a16c730"
 [private]
@@ -65,9 +65,9 @@ bazzite_nvidia := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:stable-43@sha256:8
 [private]
 bazzite_deck := "ghcr.io/ublue-os/bazzite-deck-gnome:stable-43@sha256:320e1279c28abcd592111d37884d74c3e3076385e508e88ef626b8e93710e6d3"
 [private]
-bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:71f8b5b3a14dee045958d380bb4df04d78d3a9093603e229267838d86cb28fbb"
+bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:e418a52d6185c44e70758a4bfec1dba924224a2441eab3aa829fee070fe2c969"
 [private]
-bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:9da873a7f0901116270068918aa93e74aceda368e4a1f4b77035aa821764786b"
+bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:b6ef46a0e820a24e73730e81edb00a12a0280d4ed2a4fd871a4ff6d7dbfa89ff"
 [private]
 ucore := "ghcr.io/ublue-os/ucore:stable@sha256:19937a722d81c6fa8cc48f9be8c20385fcf58a56647b58d7bb4ffcb6877c2d2f"
 [private]
