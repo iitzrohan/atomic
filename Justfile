@@ -55,9 +55,9 @@ syft-installer := "ghcr.io/anchore/syft:v1.42.4@sha256:e9f29bec38cc856bfd3a7966d
 # Base Containers
 
 [private]
-aurora := "ghcr.io/ublue-os/aurora:43@sha256:d2ff4d1fe2e14cd220d973bc0b915fd7eb4c48faf1cb9570a37117e500080a4d"
+aurora := "ghcr.io/ublue-os/aurora:43@sha256:5fc84a5493a91ba793c67cf9cd90481f5700489f3a57a635da17ccacf7a96d86"
 [private]
-aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:0c1255b2706ba4032ea5e43c6a3dac93dc3fe1c094348c44344250c7b19b2204"
+aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:010849292a264302e1255d20108c1c8719f02f826a2c7ce0b3f82744fc2ef42f"
 [private]
 bazzite := "ghcr.io/ublue-os/bazzite-gnome:stable-43@sha256:8b8958c1f0854c000b162c7a7aac9b1fddc11c5a030565620218a5fd8a16c730"
 [private]
