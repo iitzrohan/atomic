@@ -55,9 +55,9 @@ syft-installer := "ghcr.io/anchore/syft:v1.42.4@sha256:e9f29bec38cc856bfd3a7966d
 # Base Containers
 
 [private]
-aurora := "ghcr.io/ublue-os/aurora:43@sha256:dac11df9551c1f2127cf9bb1558e3b56ee6a40eb29687ea963ecd774e3ad37ec"
+aurora := "ghcr.io/ublue-os/aurora:43@sha256:85ad41a7eaa51920441e9b724af6ad872060503169a8dd0d1b36d24d79134247"
 [private]
-aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:fa1b994dd870dfd3b40cb4534a0555443af89447c6a3256b4cc0ce327020be79"
+aurora_nvidia := "ghcr.io/ublue-os/aurora-nvidia-open:43@sha256:3cfab2af04d45203e460ac09cfe55fb3fc8e4599a9e515dc8ecf118802175f69"
 [private]
 bazzite := "ghcr.io/ublue-os/bazzite-gnome:stable-43@sha256:a4c790085f82e1f3ed348f266e5778193dc989207732a215e4d51203bdf80c13"
 [private]
@@ -65,21 +65,21 @@ bazzite_nvidia := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:stable-43@sha256:3
 [private]
 bazzite_deck := "ghcr.io/ublue-os/bazzite-deck-gnome:stable-43@sha256:76c4da71f4dad7f897fa4f94464fd12e783943eb89c321335cff317e9ee97d9a"
 [private]
-bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:602ce57707194619ba93d98832fb6aac680f73d138f8b626948cf24cb2ae43aa"
+bluefin := "ghcr.io/ublue-os/bluefin:43@sha256:6e61926183660a0083e0b0b15378aef055402b987798ec19de3351f660acdc0f"
 [private]
-bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:070cc799dae00279e34a3b3acadc5e7b00fa1519ba257266023b1e96d1e5286b"
+bluefin_nvidia := "ghcr.io/ublue-os/bluefin-nvidia-open:43@sha256:e3cdd8ad3f53981550614b2822f1123b7981b7e2cf0f422d2f6e4f96537725d9"
 [private]
-ucore := "ghcr.io/ublue-os/ucore:stable@sha256:dcdeb7b266c5787b065d5769ff1c872b77d5e1c126cbd53c09df2a0f73e4c86b"
+ucore := "ghcr.io/ublue-os/ucore:stable@sha256:8f0d20d8a6258ff9325fa3fd531f9d67f437b3d4d8858d3ffd606ab964c97e18"
 [private]
-ucore_nvidia := "ghcr.io/ublue-os/ucore:stable-nvidia@sha256:669834c7a55456caa5dbcb0c66c8c0d65430ae38bb6b9ee3e7e190a081d87f36"
+ucore_nvidia := "ghcr.io/ublue-os/ucore:stable-nvidia@sha256:9cfdf3724126856c9fb9ff57b1b11f5ff008bd689ba9082cbe7aa0a1172a7173"
 [private]
-aurora_beta := "ghcr.io/ublue-os/aurora:beta@sha256:213558e603b1cab7ab1cf2e02d69c35adb5d1f1cbfe452b2d93edbd7a13cf370"
+aurora_beta := "ghcr.io/ublue-os/aurora:beta@sha256:459fa397fe0985d9241f5c24f54d8c88a9dc02c31917709c0f6df5fe0cf52005"
 [private]
-aurora_nvidia_beta := "ghcr.io/ublue-os/aurora-nvidia-open:beta@sha256:deb3e8d317b76607a4874404f1872a103c9f34965326f579cd6f45aec82a4a0e"
+aurora_nvidia_beta := "ghcr.io/ublue-os/aurora-nvidia-open:beta@sha256:9b579a06652546b85234f9ee02236629205cf4304c393e911c5d75d6dbbfcf4a"
 [private]
-bazzite_beta := "ghcr.io/ublue-os/bazzite-gnome:testing@sha256:ba85f3aab75ac26b79257c466a1e46ef5c2631373f10afbcbcf29e152226ba83"
+bazzite_beta := "ghcr.io/ublue-os/bazzite-gnome:testing@sha256:df358882cece567673d28638e1b5fcbdb416a225231e0ed79afb4b628906b640"
 [private]
-bazzite_nvidia_beta := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:testing@sha256:87beadd10a3ac10804c1c57e047c9044362acbe360f506884dc402787ea7ce57"
+bazzite_nvidia_beta := "ghcr.io/ublue-os/bazzite-gnome-nvidia-open:testing@sha256:f1a6720e482cd0df10910e430544792b9fcbcc33bad1d4cbff7e89c530baf97d"
 [private]
 bazzite_deck_beta := "ghcr.io/ublue-os/bazzite-deck-gnome:testing@sha256:dd2a9052db10d9d8e42c6bfa937c643a8d7a1ddd82b0de195828bff564a97cd2"
 [private]
@@ -87,9 +87,9 @@ bluefin_beta := "ghcr.io/ublue-os/bluefin:beta@sha256:ff7aea6f333437e66fddf0a5f4
 [private]
 bluefin_nvidia_beta := "ghcr.io/ublue-os/bluefin-nvidia-open:beta@sha256:867baac505dbf334899e5945344c91e104024ec6cfa52ad34dce75082d458c8b"
 [private]
-ucore_beta := "ghcr.io/ublue-os/ucore:testing@sha256:b255a9907118b7bf366ea50f927477a707340f77c321f8b8c1e75a2bce358eb4"
+ucore_beta := "ghcr.io/ublue-os/ucore:testing@sha256:ef05fe2f1464cd9d3d41c589b2d7b77cbcda4cfffe1c5ec84fb48e10c633e23b"
 [private]
-ucore_nvidia_beta := "ghcr.io/ublue-os/ucore:testing-nvidia@sha256:495ee787fd42a7d85d6226ce38a908e748f5fcb849dbe8091a9989c886952774"
+ucore_nvidia_beta := "ghcr.io/ublue-os/ucore:testing-nvidia@sha256:e16419dfe373ae52fb4bce8ad833bfd8385603ff02773ddc3bebb42403ff38e4"
 
 [private]
 default:
