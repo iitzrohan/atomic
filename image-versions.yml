@@ -33,4 +33,4 @@ images:
   - name: base-43
     image: ghcr.io/ublue-os/base-main
     tag: 43
-    digest: sha256:74603d5106e2c806cbaf1c18aadc6877a223496e5a6b53c562e4ad4ec61397cc
+    digest: sha256:7bcd98c3b92167df8b690141d07ffb602db689d613d161b61bc5184f255429e9
