@@ -46,7 +46,7 @@ images := '(
 [private]
 rechunker := "ghcr.io/ublue-os/legacy-rechunk:v1.0.0-x86_64@sha256:1ee0b4ad0eee9b300cca1afd8cf78b78ce77bcc0d5aa16b07a195c6c22f1c9b4"
 [private]
-qemu := "ghcr.io/qemus/qemu:7.30@sha256:dcb64905f30a8471ab9ed1966fbccb5439d767652116ef4b115573d24571f11d"
+qemu := "ghcr.io/qemus/qemu:7.30@sha256:26906db8ec867a9e5e20508773f4f9e7058db1225b9babedcd1cb198bbc4606f"
 [private]
 cosign-installer := "ghcr.io/sigstore/cosign/cosign:v2.4.1"
 [private]
